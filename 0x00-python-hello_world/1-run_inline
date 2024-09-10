@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/python3
+import os
+import sys
+
+# Get the PYCODE environment variable
+pycode = os.getenv('PYCODE')
 
 # Check if the PYCODE environment variable is set
-if [ -z "$PYCODE" ]; then
-    echo "Error: PYCODE environment variable is not set."
-    exit 1
-fi
+if pycode is None:
+    print("Error: PYCODE environment variable is not set.")
+    sys.exit(1)
 
-# Run the Python code stored in the PYCODE variable
-python3 -c "$PYCODE"
+# Run the Python code
+exec(pycode)
 

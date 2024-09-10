@@ -1,17 +1,20 @@
-#!/bin/bash
+#!/usr/bin/python3
+import os
+import sys
+
+# Get the PYFILE environment variable
+pyfile = os.getenv('PYFILE')
 
 # Check if the PYFILE environment variable is set
-if [ -z "$PYFILE" ]; then
-    echo "Error: PYFILE environment variable is not set."
-    exit 1
-fi
+if pyfile is None:
+    print("Error: PYFILE environment variable is not set.")
+    sys.exit(1)
 
 # Check if the file exists and is executable
-if [ ! -x "$PYFILE" ]; then
-    echo "Error: $PYFILE does not exist or is not executable."
-    exit 1
-fi
+if not os.access(pyfile, os.X_OK):
+    print(f"Error: {pyfile} does not exist or is not executable.")
+    sys.exit(1)
 
 # Run the Python script
-python3 "$PYFILE"
+os.system(f"python3 {pyfile}")
 
