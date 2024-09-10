@@ -17,4 +17,3 @@ if not os.access(pyfile, os.X_OK):
 
 # Run the Python script
 os.system(f"python3 {pyfile}")
-
