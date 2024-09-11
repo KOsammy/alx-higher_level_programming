@@ -4,4 +4,4 @@ for i in range(10):
         if i == 8 and j == 9:
             print("{:02d}{:02d}".format(i, j))
         else:
-            print("{:02d}{:02d}, ".format(i, j), end="")
+            print("{:02d}, ".format(i * 10 + j), end="")
